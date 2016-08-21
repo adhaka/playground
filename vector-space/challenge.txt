@@ -1,0 +1,77 @@
+
+Lifesum Junior Dev Code Assignment 2016
+
+Purpose: 
+The purpose of this exercise is as much for us to see your coding style as it is for you to see if these types of problems would be a fun exercise to tackle on a daily basis. While every day is different, this will give you a glimpse at the types of tasks we are trying to accomplish. It is also designed to hopefully give you a chance to learn something completely new and this is perhaps the most important part of what we do here every day. We are always met with vague challenges and we have to learn along the way. Use Google, Stackoverflow, etc. to research. 
+
+Instructions:
+We are a Python house at the moment so we ask that you write this code test in Python.
+If you are not familiar with Python, please specify the language you are most familiar with in your readme file and just do the best you can to complete this in Python.
+This assignment is split up into stages. Complete as many as you can. Work life balance is important at Lifesum, so take as much time as you’d like to complete this by the deadline, but try to not overwork or put too much stress on your schedule. 
+
+When you are ready please send your full solution and any documentation to your contact at Lifesum as a zipped file.
+
+The Assignment Summary:
+We will write a data store to enable querying food documents (strings). We will hold and index these documents in memory to make it simple and fast.
+
+Stage 1:
+We have a large list in some order of (we assume) foods from the English language
+Write a function or use an existing structure that will store foods (strings) in a list.
+
+Stage 2:
+Internally, we represent a document as a binary vector in the space of all words
+
+Example:
+If our list of “all” words is this:
+[ “hot”, “chocolate”, “milk”]
+
+The document “hot chocolate” is represented as :
+doc = [1 1 0]
+
+The document “hot milk” is represented as:
+doc = [1 0 1]
+
+Your previously stored documents in a list that is the food dictionary. We now want to represent each possible document as a binary vector. Continue on your script by implementing something that will take these food documents and store them in binary vector format. Be sure that the data structure you pick has a tie to both the vector and the original document.
+“chocolate milk”
+“hot milk”
+
+
+
+Stage 3:
+You now have a document store where documents have binary representation of these documents:
+“chocolate milk”
+“hot milk”
+We represent a query in the same way as documents - the query is represented as a binary vector in the space of all words.
+
+Example:
+
+The search query “hot chocolate” is represented as :
+query = [1 1 0]
+
+The search query “chocolate” is represented as :
+query = [0 1 0]
+
+We execute a query by computing the scalar product between the query vector and all the document vectors. We retrieve the N highest scoring document.
+
+Example:
+
+The search query “hot chocolate” is represented as :
+query = [1 1 0]
+
+
+Your script will calculate and store in memory the vectors. So “hot milk” is a document stored as [1 0 1] and we will get the scalar product by using the query and document vectors.
+“Hot” would be represented as [1 0 0] and calculated as :
+scalar product = 1*1 + 1 * 0 + 0 * 0 = 1
+
+Note that the scalar product for the query “hot chocolate” and document “hot chocolate” will come back with a higher scoring document. When comparing all scalar products, we want to return the document that scored highest. 
+
+You can just print the document that would come back in this case.
+
+
+
+
+Bonus:
+If you’ve gotten this far and you haven’t done so yet, write tests around your code. They’ll keep your code from breaking when optimizing and refactoring.
+Next, think about how your code would work if someone searched for “chocolate hot” instead of “hot chocolate” or if the documents were not always stored in the exact order that one would expect. Would the code you currently have still function? Write a test to see if it would or not. 
+If we were to store 1 million records, would the memory still hold up with your code? Think about the optimizations you would have to do and what you would have to consider. Write these considerations and a proposal for optimization in a short paragraph.
+
